@@ -4,18 +4,45 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Banda Calypso Style</title>
     <link rel="stylesheet" href="estilos.css">
+    <link rel="preload" href="menu.css" as="style">
+    <link rel="preload" href="scriptmenu.js" as="script">
+    <link rel="stylesheet" href="menu.css">
 </head>
 
 <body>
-    <div class="login-card">
+    <div class="login-card" id="tela-login">
         <h2>Login</h2>
         <input type="text" id="username" placeholder="Usuário">
         <input type="password" id="password" placeholder="Senha">
         <button onclick="fazerLogin()">Entrar</button>
         <p id="mensagem"></p>
     </div>
+
+    <div id="area-logada" style="display: none;">
+        <header>
+             <button id="btnMenu">☰ Menu</button>
+        </header>
+        <div class="content">
+            <p>CONTEÚDO PARA PROJETO A3</p>
+        </div>
+        <div id="menu" class="menu effect">
+            <nav>
+                <div style="text-align: right;">
+                    <button id="btnClose">X</button>
+                </div>
+                <ul>
+                    <li><a href="#">opcao 1</a></li>
+                    <li><a href="#">opcao 2</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <script src="scriptmenu.js"></script>
+    <script src="consomeapi.js"></script>
 </body>
-<script src="consomeapi.js"></script>
 </html>

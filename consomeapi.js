@@ -10,16 +10,18 @@ async function fazerLogin() {
     try {
         // No GET, passamos os parâmetros direto na URL 
         // Usamos encodeURIComponent para garantir que caracteres especiais não quebrem a URL
-        const url = 'http://localhost:3000/login?username=${encodeURIComponent(user)}&password=${encodeURIComponent(pass)}';
+        const url = `http://localhost:3000/acesso?usuario=${encodeURIComponent(user)}&senha=${encodeURIComponent(pass)}`;
+
         const response = await fetch(url,
             {
                 method: 'GET', // Mudamos de POST para GET 
                 headers: { 'Content-Type': 'application/json' }
             });
         const data = await response.json();
+
         if (data.success) {
-            msg.style.color = "green";
-            msg.innerText = "  " + data.message;
+            document.getElementById('tela-login').style.display = 'none';
+            document.getElementById('area-logada').style.display = 'block';
         }
         else {
             msg.style.color = "red";
