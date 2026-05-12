@@ -1,30 +1,73 @@
 <!DOCTYPE html>
-
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Banda Calypso Style</title>
-    <link rel="stylesheet" href="estilos.css">
+    <title>Login</title>
+    <link rel="stylesheet" href="cadastro.css">
     <link rel="preload" href="menu.css" as="style">
     <link rel="preload" href="scriptmenu.js" as="script">
     <link rel="stylesheet" href="menu.css">
+    <style>
+        .btn-entrar {
+            background-color: #1a1a2e;
+            color: #fff;
+        }
+        .btn-entrar:hover {
+            background-color: #0d0d1e;
+        }
+        .link-cadastro {
+            display: block;
+            text-align: center;
+            margin-top: 14px;
+            font-size: 0.85rem;
+            color: #555;
+        }
+        .link-cadastro a {
+            color: #1a73e8;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .link-cadastro a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
-
 <body>
-    <div class="login-card" id="tela-login">
-        <h2>Login</h2>
-        <input type="text" id="username" placeholder="Usuário">
-        <input type="password" id="password" placeholder="Senha">
-        <button onclick="fazerLogin()">Entrar</button>
-        <p id="mensagem"></p>
+    <!-- Tela de Login -->
+    <div class="card" id="tela-login">
+        <h1>Login</h1>
+
+        <div class="form-group">
+            <label for="username">Usuário</label>
+            <input type="text" id="username" placeholder="Digite o nome de login">
+        </div>
+
+        <div class="form-group senha-group">
+            <label for="password">Senha</label>
+            <div class="input-senha">
+                <input type="password" id="password" placeholder="•••• •••••• senha">
+                <button type="button" class="toggle-senha" onclick="toggleSenhaLogin()" aria-label="Mostrar/ocultar senha">
+                    <svg id="icone-login-senha" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
+                        <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+                        <line x1="1" y1="1" x2="23" y2="23"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <p id="mensagem" class="mensagem"></p>
+
+        <button class="btn btn-entrar" onclick="fazerLogin()">ENTRAR</button>
+        <span class="link-cadastro">Não tem uma conta? <a href="frm_cadastro.html">Cadastrar novo usuário</a></span>
     </div>
 
+    <!-- Área logada (mantida igual) -->
     <div id="area-logada" style="display: none;">
         <header>
-             <button id="btnMenu">☰ Menu</button>
+            <button id="btnMenu">☰ Menu</button>
         </header>
         <div class="content">
             <p>CONTEÚDO PARA PROJETO A3</p>
@@ -42,6 +85,24 @@
         </div>
     </div>
 
+    <script>
+        function toggleSenhaLogin() {
+            const input = document.getElementById('password');
+            const btn = document.querySelector('.toggle-senha');
+            const isHidden = input.type === 'password';
+            input.type = isHidden ? 'text' : 'password';
+            btn.innerHTML = isHidden
+                ? `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                       <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                       <circle cx="12" cy="12" r="3"/>
+                   </svg>`
+                : `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                       <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
+                       <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+                       <line x1="1" y1="1" x2="23" y2="23"/>
+                   </svg>`;
+        }
+    </script>
     <script src="scriptmenu.js"></script>
     <script src="consomeapi.js"></script>
 </body>
