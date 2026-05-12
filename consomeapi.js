@@ -3,18 +3,15 @@ async function fazerLogin() {
     const pass = document.getElementById('password').value;
     const msg = document.getElementById('mensagem');
 
-    // Limpa a mensagem anterior 
     msg.innerText = "Carregando...";
     msg.style.color = "black";
 
     try {
-        // No GET, passamos os parâmetros direto na URL 
-        // Usamos encodeURIComponent para garantir que caracteres especiais não quebrem a URL
         const url = `http://localhost:3000/acesso?usuario=${encodeURIComponent(user)}&senha=${encodeURIComponent(pass)}`;
 
         const response = await fetch(url,
             {
-                method: 'GET', // Mudamos de POST para GET 
+                method: 'GET',
                 headers: { 'Content-Type': 'application/json' }
             });
         const data = await response.json();

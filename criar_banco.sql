@@ -1,7 +1,3 @@
--- ============================================
--- Schema e tabela para a atividade (MySQL)
--- ============================================
-
 CREATE SCHEMA IF NOT EXISTS SISTEMA DEFAULT CHARACTER SET utf8mb4;
 
 USE SISTEMA;

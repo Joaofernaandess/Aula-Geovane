@@ -6,7 +6,6 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Configuração da conexão com MySQL
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -19,9 +18,6 @@ db.connect(err => {
     console.log('Conectado ao MySQL!');
 });
 
-// ============================
-// Rota de Login (existente)
-// ============================
 app.get('/acesso', (req, res) => {
     const { usuario, senha } = req.query;
     console.log('Tentativa de login com:', usuario);
@@ -40,9 +36,6 @@ app.get('/acesso', (req, res) => {
     });
 });
 
-// =============================================
-// Rota para INSERIR usuário (atividade Geovane)
-// =============================================
 app.post('/inserirusuario', (req, res) => {
     const { nome, login, senha, ativado } = req.body;
 
