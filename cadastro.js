@@ -73,6 +73,5 @@ function limparFormulario() {
 }
 
 function cancelar() {
-    limparFormulario();
-    document.getElementById('mensagem').innerText = '';
+    window.location.href = 'frm_acesso.html';
 }
