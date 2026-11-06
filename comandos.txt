@@ -1,0 +1,7 @@
+PASSOS PARA USAR O GIT E ATUALIZAR
+UM REPOSITORIO
+PASSO 1
+git add nome do arquivo
+git commit -m'descrição da modificação feita'
+git push atualiza o repositorio remoto
+
